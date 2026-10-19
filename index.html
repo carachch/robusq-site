@@ -66,8 +66,18 @@
     white-space: nowrap;
   }
   nav a:hover, nav a:focus-visible { color: #FFF; }
-  nav a.boxed { color: #FFF; border: 1px solid #4A4844; padding: 9px 20px; }
-  nav a.boxed:hover, nav a.boxed:focus-visible { background: #FFF; color: #0B0B0B; }
+
+  /* Header call to action */
+  .actions { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+  .hcta {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 40px; padding: 0 22px; border-radius: 999px;
+    background: #FAFAF8; color: #0B0B0B; border: 1px solid #FAFAF8;
+    font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+    transition: background .2s, color .2s;
+  }
+  .hcta:hover, .hcta:focus-visible { background: transparent; color: #FAFAF8; }
 
   /* Hamburger */
   .burger {
@@ -114,11 +124,10 @@
       border-bottom: 1px solid #242320;
     }
     nav a:first-child { border-top: 1px solid #242320; }
-    nav a.boxed {
-      border: 0; border-bottom: 1px solid #242320; padding: 22px 0; color: #FAFAF8;
-    }
-    nav a.boxed:hover, nav a.boxed:focus-visible { background: transparent; color: #FFF; }
+    .actions { position: relative; z-index: 95; gap: 6px; }
+    .hcta { height: 38px; padding: 0 16px; font-size: 11px; letter-spacing: .1em; }
     body.nav-open { overflow: hidden; }
+    body.nav-open .hcta { opacity: 0; pointer-events: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -136,6 +145,7 @@
     font-family: 'Archivo', sans-serif; font-size: 13px;
     letter-spacing: 0.18em; text-transform: uppercase;
     padding: 16px 32px; border: 1px solid #FAFAF8; color: #FAFAF8;
+    border-radius: 999px;
     transition: background .2s, color .2s;
   }
   .btn:hover, .btn:focus-visible { background: #FAFAF8; color: #0B0B0B; }
@@ -214,7 +224,8 @@
     border: 1px solid #FAFAF8; color: #FAFAF8;
     font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 500;
     letter-spacing: .18em; text-transform: uppercase;
-    padding: 16px 34px; cursor: pointer; transition: background .2s, color .2s;
+    padding: 16px 34px; border-radius: 999px; cursor: pointer;
+    transition: background .2s, color .2s;
   }
   .enq button:hover, .enq button:focus-visible { background: #FAFAF8; color: #0B0B0B; }
   .fnote { margin: 0; font-size: 13px; line-height: 1.6; color: #8C8880; }
@@ -267,15 +278,17 @@
 <header class="pad" id="siteheader">
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Robusq home"><img src="logo.png" alt="Robusq"></a>
-    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
-      <span></span>
-    </button>
     <nav id="nav">
       <a href="#projects">Projects</a>
       <a href="#approach">Approach</a>
       <a href="#about">About</a>
-      <a class="boxed" href="#contact">Enquire</a>
     </nav>
+    <div class="actions">
+      <a class="hcta" href="#contact">Get in touch</a>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
 
