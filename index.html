@@ -229,7 +229,11 @@
 
   /* About */
   .about .portrait { flex: 1 1 280px; min-width: 0; }
-  .about .portrait img { width: 100%; height: auto; background: #E8E5DE; }
+  .about .portrait img {
+    width: 100%; height: auto; background: #E8E5DE;
+    border-radius: 22px;
+  }
+  @media (max-width: 640px) { .about .portrait img { border-radius: 18px; } }
   .about h2 { max-width: 22ch; font-size: clamp(30px,4.2vw,48px); }
   .about .body p { margin: 24px 0 0; max-width: 60ch; font-size: 16px; line-height: 1.8; color: #45423E; }
 
