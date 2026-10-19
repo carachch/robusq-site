@@ -166,10 +166,10 @@
   .projects h2 { margin-bottom: clamp(40px,6vw,72px); max-width: 24ch; }
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: clamp(28px,3.5vw,44px); }
   .card .shot {
-    overflow: hidden; background: #F1EFEA; aspect-ratio: 4/3;
+    overflow: hidden; background: #F1EFEA; aspect-ratio: 16/9;
     display: flex; align-items: center; justify-content: center;
   }
-  .card .shot img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s; }
+  .card .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
   .card:hover .shot img { transform: scale(1.03); }
   .card .shot span { font-family: 'Archivo', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #8C8880; }
   .card .shot.plate { background: #0B0B0B; flex-direction: column; gap: 14px; padding: 32px; text-align: center; }
@@ -340,7 +340,7 @@
         </article>
 
         <article class="card">
-          <div class="shot"><img src="img/kedron.jpg" alt="Proposed facade of the Robusq home at 17 Oliver Street, Kedron" loading="lazy" width="1400" height="1048"></div>
+          <div class="shot"><img src="img/kedron.jpg" alt="Proposed facade of the Robusq home at 17 Oliver Street, Kedron" loading="lazy" width="1600" height="900"></div>
           <p class="status">In planning</p>
           <h3>17 Oliver Street, Kedron</h3>
           <p>A character overlay site being taken through development approval. Five bedrooms, butler's pantry, a large alfresco and a pool.</p>
@@ -352,7 +352,7 @@
         </article>
 
         <article class="card">
-          <div class="shot"><img src="img/wynnum.jpg" alt="Render of two homes proposed at 256 Wynnum North Road, Wynnum" loading="lazy" width="1600" height="800"></div>
+          <div class="shot"><img src="img/wynnum.jpg" alt="Render of two homes proposed at 256 Wynnum North Road, Wynnum" loading="lazy" width="1600" height="900"></div>
           <p class="status">Acquired 2026</p>
           <h3>256 Wynnum North Road, Wynnum</h3>
           <p>Our most recent acquisition, on Brisbane's bayside. Two homes, with design and planning now underway.</p>
@@ -364,7 +364,7 @@
         </article>
 
         <article class="card">
-          <div class="shot"><img src="img/sunnybank.jpg" alt="Completed five storey residential building at 16 Troughton Road, Sunnybank" loading="lazy" width="800" height="600"></div>
+          <div class="shot"><img src="img/sunnybank.jpg" alt="Completed five storey residential building at 16 Troughton Road, Sunnybank" loading="lazy" width="1600" height="900"></div>
           <p class="status">Sold with approval</p>
           <h3>16 Troughton Road, Sunnybank</h3>
           <p>A five storey residential site. Acquired, taken through to building approval, then sold. Our largest project to date.</p>
@@ -376,8 +376,9 @@
         </article>
 
         <article class="card">
-          <div class="shot"><img src="img/cannonhill.jpg" alt="Artist impression of the proposed residential buildings at 34 Andrews Street, Cannon Hill" loading="lazy" width="1600" height="740"></div>
+          <div class="shot"><img src="img/cannonhill.jpg" alt="Artist impression of the proposed residential buildings at 34 Andrews Street, Cannon Hill" loading="lazy" width="1600" height="900"></div>
           <p class="cap">Artist impression. Indicative only.</p>
+          <p class="status">First project</p>
           <h3>34 Andrews Street, Cannon Hill</h3>
           <p>Site secured and design progressed to 30 units across two buildings.</p>
           <dl>
