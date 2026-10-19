@@ -120,11 +120,7 @@
 
   /* About */
   .about .portrait { flex: 1 1 280px; min-width: 0; }
-  .about .portrait div {
-    background: #E8E5DE; aspect-ratio: 3/4;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #8C8880;
-  }
+  .about .portrait img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #E8E5DE; }
   .about h2 { max-width: 22ch; font-size: clamp(30px,4.2vw,48px); }
   .about .body p { margin: 24px 0 0; max-width: 60ch; font-size: 16px; line-height: 1.8; color: #45423E; }
 
@@ -184,7 +180,7 @@
       <div><p class="n">2014</p><p class="l">First project delivered</p></div>
       <div><p class="n">3</p><p class="l">Sites currently in delivery</p></div>
       <div><p class="n">SEQ</p><p class="l">Brisbane, Moreton Bay and Logan</p></div>
-      <div><p class="n">[XX]</p><p class="l">Homes delivered to date</p></div>
+      <div><p class="n">20</p><p class="l">Homes delivered and in delivery</p></div>
     </div>
   </section>
 
@@ -220,12 +216,12 @@
         </article>
 
         <article class="card">
-          <div class="shot"><span>[Render &mdash; Wynnum]</span></div>
+          <div class="shot"><img src="img/wynnum.jpg" alt="Render of two homes proposed at 256 Wynnum North Road, Wynnum" loading="lazy" width="1200" height="900"></div>
           <p class="status">Acquired 2026</p>
           <h3>256 Wynnum North Road, Wynnum</h3>
-          <p>Our most recent acquisition, on Brisbane's bayside. Design and planning now underway.</p>
+          <p>Our most recent acquisition, on Brisbane's bayside. Two homes, with design and planning now underway.</p>
           <dl>
-            <dt>Land</dt><dd>[XXX sqm]</dd>
+            <dt>Homes</dt><dd>Two</dd>
             <dt>Status</dt><dd>Design stage</dd>
             <dt>Completion</dt><dd>[2028]</dd>
           </dl>
@@ -233,13 +229,13 @@
 
         <article class="card">
           <div class="shot"><img src="img/sunnybank.jpg" alt="Completed five storey residential building at 16 Troughton Road, Sunnybank" loading="lazy" width="1200" height="900"></div>
-          <p class="status">Completed</p>
+          <p class="status">Sold with approval</p>
           <h3>16 Troughton Road, Sunnybank</h3>
-          <p>A five storey residential building, delivered and sold. Our largest project to date and the one that set the standard for everything since.</p>
+          <p>A five storey residential site. Acquired, taken through to building approval, then sold. Our largest project to date.</p>
           <dl>
             <dt>Type</dt><dd>Five storey residential</dd>
-            <dt>Status</dt><dd>Delivered</dd>
-            <dt>Completed</dt><dd>[20XX]</dd>
+            <dt>Status</dt><dd>Building approval, sold</dd>
+            <dt>Completion</dt><dd>Built by purchaser</dd>
           </dl>
         </article>
 
@@ -248,13 +244,12 @@
             <span class="pnum">34 Andrews St</span>
             <span class="pst">Cannon Hill</span>
           </div>
-          <p class="status">[Status]</p>
+          <p class="status">Development approval</p>
           <h3>34 Andrews Street, Cannon Hill</h3>
-          <p>A five storey residential development on a medium density site, taken through development approval with Scott Connell Architects.</p>
+          <p>A five storey residential development on a medium density site, taken through to development approval with Scott Connell Architects.</p>
           <dl>
             <dt>Type</dt><dd>Five storey residential</dd>
-            <dt>Status</dt><dd>[Status]</dd>
-            <dt>Completion</dt><dd>[20XX]</dd>
+            <dt>Status</dt><dd>Development approval</dd>
           </dl>
         </article>
 
@@ -292,7 +287,7 @@
 
   <section class="block about pad" id="about">
     <div class="wrap split">
-      <div class="portrait"><div>[Portrait]</div></div>
+      <div class="portrait"><img src="img/chaz.jpg" alt="Chaz Arachchi, founder of Robusq" loading="lazy" width="900" height="1200"></div>
       <div class="body">
         <p class="eyebrow">About</p>
         <h2>Chaz Arachchi</h2>
