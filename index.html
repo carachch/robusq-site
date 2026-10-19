@@ -129,6 +129,31 @@
   .contact .eyebrow { color: #8C8880; }
   .contact h2 { max-width: 18ch; font-size: clamp(30px,4.2vw,50px); }
   .contact .intro { margin: 24px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.8; color: #C6C2BB; }
+  .enq { display: grid; gap: 20px; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .fld { display: grid; gap: 8px; }
+  .fld label {
+    font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase; color: #8C8880;
+  }
+  .fld label .opt { letter-spacing: .08em; text-transform: none; font-weight: 400; color: #6E6A64; }
+  .fld input, .fld textarea {
+    background: transparent; border: 0; border-bottom: 1px solid #3A3835;
+    color: #FAFAF8; font-family: inherit; font-size: 16px; font-weight: 300;
+    padding: 12px 0; border-radius: 0; transition: border-color .2s;
+  }
+  .fld input:focus, .fld textarea:focus { outline: none; border-bottom-color: #FAFAF8; }
+  .fld textarea { resize: vertical; }
+  .enq button {
+    justify-self: start; margin-top: 6px; background: transparent;
+    border: 1px solid #FAFAF8; color: #FAFAF8;
+    font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase;
+    padding: 16px 34px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .enq button:hover, .enq button:focus-visible { background: #FAFAF8; color: #0B0B0B; }
+  .fnote { margin: 0; font-size: 13px; line-height: 1.6; color: #8C8880; }
+
   .details { margin-top: 36px; display: grid; gap: 18px; }
   .details a {
     font-family: 'Archivo', sans-serif; font-weight: 500;
@@ -167,7 +192,7 @@
     <div class="wrap">
       <p class="eyebrow">Residential development &middot; South East Queensland</p>
       <h1>Homes we would want our own friends and family to live in.</h1>
-      <p>Robusq acquires and develops family homes across South East Queensland. Small, deliberate, considered. We build a handful of houses at a time, and we give every one of them the care we would give our own.</p>
+      <p>Robusq acquires and develops family homes across South East Queensland. Small, deliberate, considered. We deliver a handful of homes at a time, and we give every one of them the care we would give our own.</p>
       <div class="btns">
         <a class="btn" href="#projects">View projects</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
@@ -235,7 +260,7 @@
           <dl>
             <dt>Type</dt><dd>Five storey residential</dd>
             <dt>Status</dt><dd>Building approval, sold</dd>
-            <dt>Completion</dt><dd>Built by purchaser</dd>
+            <dt>Outcome</dt><dd>Sold at approval</dd>
           </dl>
         </article>
 
@@ -259,7 +284,7 @@
       <div class="lede">
         <p class="eyebrow">Approach</p>
         <h2>Quality is the whole business.</h2>
-        <p>We are not a volume builder. We take on a small number of sites, hold them to a standard we would accept in our own home, and finish them properly.</p>
+        <p>We are developers, not builders. We take on a small number of sites, hold them to a standard we would accept in our own home, and see them through properly.</p>
       </div>
       <div class="body rows">
         <div>
@@ -268,7 +293,7 @@
         </div>
         <div>
           <h3>Design for the street</h3>
-          <p>Homes that sit properly in the suburb they are built in, not a floor plan dropped on a block.</p>
+          <p>Homes that sit properly in the suburb they belong to, not a floor plan dropped on a block.</p>
         </div>
         <div>
           <h3>Finishes that last</h3>
@@ -288,7 +313,7 @@
       <div class="body">
         <p class="eyebrow">About</p>
         <h2>Chaz Arachchi</h2>
-        <p>Chaz has been developing property in Brisbane since 2014, from knockdown rebuilds through to a five storey residential project. Robusq is the result of that decade: a small development business built around sites that stack up and homes that are finished properly.</p>
+        <p>Chaz has been developing property in Brisbane since 2014, from knockdown rebuilds through to a five storey residential project. Robusq is the result of that decade: a small development business centred on sites that stack up and homes that are finished properly.</p>
         <p>[One or two lines in your own words here &mdash; why you develop, and what you want people to know.]</p>
       </div>
     </div>
@@ -302,10 +327,33 @@
         <p class="intro">We look at knockdown rebuild and subdivision sites across Brisbane, Moreton Bay and Logan. Off market is welcome.</p>
       </div>
       <div class="body">
-        <div class="details">
-          <a href="mailto:chaz@robusq.com">chaz@robusq.com</a>
-          <a href="tel:+61422308311">0422 308 311</a>
-        </div>
+        <form class="enq" action="https://formsubmit.co/chaz.arachchi@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Robusq website enquiry">
+          <input type="hidden" name="_cc" value="chaz@robusq.com">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://robusq.com/thanks.html">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+
+          <div class="fld">
+            <label for="f-name">Name</label>
+            <input id="f-name" type="text" name="Name" required autocomplete="name">
+          </div>
+          <div class="fld">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" name="Email" required autocomplete="email">
+          </div>
+          <div class="fld">
+            <label for="f-phone">Phone <span class="opt">optional</span></label>
+            <input id="f-phone" type="tel" name="Phone" autocomplete="tel">
+          </div>
+          <div class="fld">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="Message" rows="4" required></textarea>
+          </div>
+          <button class="cta" type="submit">Send enquiry</button>
+          <p class="fnote">You will be asked to confirm you are human before the message is sent.</p>
+        </form>
       </div>
     </div>
   </section>
