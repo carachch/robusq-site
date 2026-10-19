@@ -168,7 +168,7 @@
   .card {
     position: relative; display: flex; flex-direction: column;
     background: #0B0B0B; color: #FAFAF8;
-    border-radius: 22px; overflow: hidden;
+    border-radius: 26px; overflow: hidden;
     min-height: 540px;
   }
   .card.wide { grid-column: 1 / -1; }
@@ -197,7 +197,9 @@
   }
 
   .card .shot {
-    margin-top: auto; overflow: hidden; background: #0B0B0B;
+    margin: auto clamp(16px,1.8vw,24px) clamp(16px,1.8vw,24px);
+    overflow: hidden; background: #0B0B0B;
+    border-radius: 16px;
     display: flex; align-items: flex-end; justify-content: center;
   }
   .card .shot img {
@@ -206,15 +208,14 @@
     transition: transform .6s cubic-bezier(.2,.6,.2,1);
   }
   .card:hover .shot img { transform: scale(1.04); }
-  .card.wide .shot img { max-height: 620px; object-fit: cover; }
+  .card.wide .shot img { max-height: 560px; object-fit: cover; }
 
   .card .cap {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    margin: 0; padding: 14px 20px;
-    background: linear-gradient(to top, rgba(11,11,11,.85), rgba(11,11,11,0));
+    margin: 12px clamp(16px,1.8vw,24px) clamp(18px,2vw,24px);
     font-size: 12px; line-height: 1.5; font-style: italic;
-    color: #BFBBB4; text-align: center;
+    color: #8C8880; text-align: center;
   }
+  .card .shot + .cap { margin-top: -4px; }
 
   /* Approach */
   .approach { background: #F1EFEA; }
@@ -295,7 +296,9 @@
     .facts .l { font-size: 13px; }
     section.block h2 { font-size: clamp(26px, 7.4vw, 36px); }
     .cards { grid-template-columns: 1fr; gap: 14px; }
-    .card { min-height: 0; border-radius: 18px; }
+    .card { min-height: 0; border-radius: 22px; }
+    .card .shot { margin: auto 14px 14px; border-radius: 14px; }
+    .card .cap { margin: 10px 14px 18px; }
     .card .head { padding: 38px 22px 26px; }
     .card h3 { font-size: 22px; }
     .card .blurb { font-size: 15px; }
