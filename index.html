@@ -163,20 +163,22 @@
   section.block h2 { margin: 0; font-size: clamp(30px,4.2vw,52px); line-height: 1.15; }
 
   /* Projects */
-  .projects h2 { margin-bottom: clamp(40px,6vw,72px); max-width: 24ch; }
-  .cards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  section.block.projects h2 {
+    margin: 0 auto clamp(56px,7vw,96px); max-width: 22ch; text-align: center;
+  }
+  .cards { display: grid; grid-template-columns: 1fr; gap: clamp(16px,2vw,22px); }
   .card {
-    position: relative; display: flex; flex-direction: column;
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    gap: clamp(24px,3.5vw,56px);
+    padding: clamp(28px,3vw,44px);
     background: #0B0B0B; color: #FAFAF8;
     border-radius: 26px; overflow: hidden;
-    min-height: 540px;
   }
-  .card.wide { grid-column: 1 / -1; }
+  .card .media { grid-column: 1; grid-row: 1; min-width: 0; }
+  .card .head  { grid-column: 2; grid-row: 1; min-width: 0; text-align: center; }
+  .card:nth-child(even) .media { grid-column: 2; }
+  .card:nth-child(even) .head  { grid-column: 1; }
 
-  .card .head {
-    padding: clamp(40px,4.5vw,58px) clamp(24px,3vw,44px) clamp(26px,3vw,36px);
-    text-align: center;
-  }
   .card .status {
     margin: 0 0 14px; font-family: 'Archivo', sans-serif;
     font-size: 11px; font-weight: 500; letter-spacing: .24em;
@@ -184,38 +186,35 @@
   }
   .card h3 {
     margin: 0; font-weight: 600; letter-spacing: -0.015em;
-    font-size: clamp(24px,2.5vw,34px); line-height: 1.15;
+    font-size: clamp(24px,2.6vw,36px); line-height: 1.15;
   }
   .card .blurb {
-    margin: 16px auto 0; max-width: 40ch;
-    font-size: clamp(15px,1.3vw,17px); line-height: 1.6; color: #C6C2BB;
+    margin: 18px auto 0; max-width: 36ch;
+    font-size: clamp(15px,1.3vw,17px); line-height: 1.65; color: #C6C2BB;
   }
   .card .meta {
-    margin: 18px 0 0; font-family: 'Archivo', sans-serif;
+    margin: 20px 0 0; font-family: 'Archivo', sans-serif;
     font-size: 12px; font-weight: 500; letter-spacing: .14em;
     text-transform: uppercase; color: #8C8880;
   }
 
-  .card .shot {
-    margin: auto clamp(16px,1.8vw,24px) clamp(16px,1.8vw,24px);
-    overflow: hidden; background: #0B0B0B;
-    border-radius: 16px;
-    display: flex; align-items: flex-end; justify-content: center;
-  }
+  .card .shot { overflow: hidden; border-radius: 16px; background: #141413; }
   .card .shot img {
     width: 100%; height: auto; display: block;
-    transform: scale(1.001);
     transition: transform .6s cubic-bezier(.2,.6,.2,1);
   }
   .card:hover .shot img { transform: scale(1.04); }
-  .card.wide .shot img { max-height: 560px; object-fit: cover; }
 
   .card .cap {
-    margin: 12px clamp(16px,1.8vw,24px) clamp(18px,2vw,24px);
-    font-size: 12px; line-height: 1.5; font-style: italic;
-    color: #8C8880; text-align: center;
+    margin: 14px 0 0; font-size: 12px; line-height: 1.5;
+    font-style: italic; color: #8C8880; text-align: center;
   }
-  .card .shot + .cap { margin-top: -4px; }
+
+  @media (max-width: 860px) {
+    .card { grid-template-columns: 1fr; gap: 26px; }
+    .card .head,  .card:nth-child(even) .head  { grid-column: 1; grid-row: 1; }
+    .card .media, .card:nth-child(even) .media { grid-column: 1; grid-row: 2; }
+  }
 
   /* Approach */
   .approach { background: #F1EFEA; }
@@ -295,14 +294,12 @@
     .facts .n { font-size: 30px; }
     .facts .l { font-size: 13px; }
     section.block h2 { font-size: clamp(26px, 7.4vw, 36px); }
-    .cards { grid-template-columns: 1fr; gap: 14px; }
-    .card { min-height: 0; border-radius: 22px; }
-    .card .shot { margin: auto 14px 14px; border-radius: 14px; }
-    .card .cap { margin: 10px 14px 18px; }
-    .card .head { padding: 38px 22px 26px; }
+    .cards { gap: 14px; }
+    .card { border-radius: 22px; padding: 22px; gap: 22px; }
+    .card .shot { border-radius: 14px; }
     .card h3 { font-size: 22px; }
-    .card .blurb { font-size: 15px; }
-    .card .meta { font-size: 11px; letter-spacing: .12em; }
+    .card .blurb { font-size: 15px; margin-top: 14px; }
+    .card .meta { font-size: 11px; letter-spacing: .12em; margin-top: 16px; }
     .rows > div { padding: 22px 0; }
     .enq button { width: 100%; text-align: center; }
     footer .wrap { justify-content: flex-start; gap: 14px; }
@@ -355,7 +352,6 @@
 
   <section class="block projects pad" id="projects">
     <div class="wrap">
-      <p class="eyebrow">Projects</p>
       <h2>Five projects across South East Queensland.</h2>
 
       <div class="cards">
@@ -367,7 +363,9 @@
             <p class="blurb">A double storey family home with a 5.4 metre void over the living room and a pool.</p>
             <p class="meta">5 bed &middot; 3 bath &middot; 2 car &middot; 357 sqm</p>
           </div>
-          <div class="shot"><img src="img/aspley.jpg" alt="Facade render of the Robusq home at 49 Navua Avenue, Aspley" loading="lazy" width="1600" height="1200"></div>
+          <div class="media">
+            <div class="shot"><img src="img/aspley.jpg" alt="Facade render of the Robusq home at 49 Navua Avenue, Aspley" loading="lazy" width="1600" height="1200"></div>
+          </div>
         </article>
 
         <article class="card">
@@ -377,7 +375,9 @@
             <p class="blurb">A character overlay site in development approval. Butler's pantry, a large alfresco and a pool.</p>
             <p class="meta">5 bed &middot; approx. 350 sqm &middot; Q3 2027</p>
           </div>
-          <div class="shot"><img src="img/kedron.jpg" alt="Proposed facade of the Robusq home at 17 Oliver Street, Kedron" loading="lazy" width="1400" height="1048"></div>
+          <div class="media">
+            <div class="shot"><img src="img/kedron.jpg" alt="Proposed facade of the Robusq home at 17 Oliver Street, Kedron" loading="lazy" width="1400" height="1048"></div>
+          </div>
         </article>
 
         <article class="card">
@@ -387,7 +387,9 @@
             <p class="blurb">Our most recent acquisition, on Brisbane's bayside. Design and planning now underway.</p>
             <p class="meta">Two homes &middot; Design stage</p>
           </div>
-          <div class="shot"><img src="img/wynnum.jpg" alt="Render of two homes proposed at 256 Wynnum North Road, Wynnum" loading="lazy" width="1600" height="1200"></div>
+          <div class="media">
+            <div class="shot"><img src="img/wynnum.jpg" alt="Render of two homes proposed at 256 Wynnum North Road, Wynnum" loading="lazy" width="1600" height="1200"></div>
+          </div>
         </article>
 
         <article class="card">
@@ -397,18 +399,22 @@
             <p class="blurb">Acquired, taken through to building approval, then sold. Our largest project to date.</p>
             <p class="meta">Five storey residential &middot; Sold at approval</p>
           </div>
-          <div class="shot"><img src="img/sunnybank.jpg" alt="Five storey residential building at 16 Troughton Road, Sunnybank" loading="lazy" width="800" height="600"></div>
+          <div class="media">
+            <div class="shot"><img src="img/sunnybank.jpg" alt="Five storey residential building at 16 Troughton Road, Sunnybank" loading="lazy" width="800" height="600"></div>
+          </div>
         </article>
 
-        <article class="card wide">
+        <article class="card">
           <div class="head">
             <p class="status">First project</p>
             <h3>34 Andrews Street, Cannon Hill</h3>
             <p class="blurb">Site secured and design progressed to 30 units across two buildings.</p>
             <p class="meta">30 units &middot; Two buildings</p>
           </div>
-          <div class="shot"><img src="img/cannonhill.jpg" alt="Artist impression of the proposed residential buildings at 34 Andrews Street, Cannon Hill" loading="lazy" width="1600" height="1200"></div>
-          <p class="cap">Artist impression. Indicative only.</p>
+          <div class="media">
+            <div class="shot"><img src="img/cannonhill.jpg" alt="Artist impression of the proposed residential buildings at 34 Andrews Street, Cannon Hill" loading="lazy" width="1600" height="1200"></div>
+            <p class="cap">Artist impression. Indicative only.</p>
+          </div>
         </article>
 
       </div>
