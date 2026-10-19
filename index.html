@@ -43,25 +43,90 @@
   h1, h2, h3 { font-family: 'Archivo', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
 
   /* Header */
-  header { background: #0B0B0B; }
-  .bar {
-    display: flex; flex-wrap: wrap; gap: 20px;
-    align-items: center; justify-content: space-between;
-    padding-top: 26px; padding-bottom: 26px;
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: #0B0B0B;
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s;
   }
-  .bar img { height: 26px; width: auto; }
-  nav { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 38px); align-items: center; }
+  header.scrolled { border-bottom-color: #242320; }
+  .bar {
+    display: flex; gap: 20px;
+    align-items: center; justify-content: space-between;
+    padding-top: 18px; padding-bottom: 18px;
+  }
+  .bar .brand { flex: 0 0 auto; }
+  .bar .brand img { height: 24px; width: auto; }
+
+  nav { display: flex; gap: clamp(18px, 3vw, 38px); align-items: center; }
   nav a {
-    font-family: 'Archivo', sans-serif; font-size: 13px;
+    font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: #BFBBB4; transition: color .2s;
+    color: #BFBBB4; transition: color .2s, background .2s;
+    white-space: nowrap;
   }
   nav a:hover, nav a:focus-visible { color: #FFF; }
   nav a.boxed { color: #FFF; border: 1px solid #4A4844; padding: 9px 20px; }
-  nav a.boxed:hover { background: #FFF; color: #0B0B0B; }
+  nav a.boxed:hover, nav a.boxed:focus-visible { background: #FFF; color: #0B0B0B; }
+
+  /* Hamburger */
+  .burger {
+    display: none; flex: 0 0 auto;
+    width: 48px; height: 48px; margin-right: -12px;
+    padding: 0; background: transparent; border: 0; cursor: pointer;
+    align-items: center; justify-content: center;
+  }
+  .burger span {
+    display: block; position: relative;
+    width: 24px; height: 2px; background: #FAFAF8;
+    transition: background .2s;
+  }
+  .burger span::before, .burger span::after {
+    content: ''; position: absolute; left: 0;
+    width: 24px; height: 2px; background: #FAFAF8;
+    transition: transform .25s, top .2s;
+  }
+  .burger span::before { top: -8px; }
+  .burger span::after { top: 8px; }
+  .burger[aria-expanded="true"] span { background: transparent; }
+  .burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+  .burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+  @media (max-width: 760px) {
+    .burger { display: flex; position: relative; z-index: 95; }
+    .bar { padding-top: 14px; padding-bottom: 14px; }
+    .bar .brand { position: relative; z-index: 95; }
+    .bar .brand img { height: 20px; }
+    nav { padding-top: 84px; }
+    nav {
+      position: fixed; inset: 0; z-index: 90;
+      background: #0B0B0B;
+      flex-direction: column; align-items: stretch; justify-content: center;
+      gap: 0; padding: 0 clamp(20px,7vw,48px);
+      transform: translateY(-100%); visibility: hidden;
+      transition: transform .32s cubic-bezier(.4,0,.2,1), visibility .32s;
+      overflow-y: auto;
+    }
+    nav.open { transform: translateY(0); visibility: visible; }
+    nav a {
+      font-size: 22px; letter-spacing: .08em; font-weight: 500;
+      color: #FAFAF8; padding: 22px 0;
+      border-bottom: 1px solid #242320;
+    }
+    nav a:first-child { border-top: 1px solid #242320; }
+    nav a.boxed {
+      border: 0; border-bottom: 1px solid #242320; padding: 22px 0; color: #FAFAF8;
+    }
+    nav a.boxed:hover, nav a.boxed:focus-visible { background: transparent; color: #FFF; }
+    body.nav-open { overflow: hidden; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    nav, .burger span, .burger span::before, .burger span::after { transition: none; }
+  }
 
   /* Hero */
-  .hero { background: #0B0B0B; color: #FAFAF8; padding: clamp(64px,11vw,150px) 0 clamp(72px,12vw,170px); }
+  .hero { background: #0B0B0B; color: #FAFAF8; padding-top: clamp(56px,11vw,150px); padding-bottom: clamp(64px,12vw,170px); }
   .hero .eyebrow { color: #8C8880; margin-bottom: clamp(28px,5vw,54px); }
   .hero h1 { margin: 0; max-width: 20ch; font-size: clamp(38px,6.6vw,82px); line-height: 1.08; }
   .hero p { margin: clamp(28px,4vw,44px) 0 0; max-width: 56ch; font-size: clamp(16px,1.6vw,19px); line-height: 1.75; color: #C6C2BB; }
@@ -78,18 +143,18 @@
   .btn.ghost:hover { background: #FAFAF8; color: #0B0B0B; border-color: #FAFAF8; }
 
   /* Facts */
-  .facts { border-bottom: 1px solid #E5E2DB; padding: clamp(44px,6vw,72px) 0; }
+  .facts { border-bottom: 1px solid #E5E2DB; padding-top: clamp(40px,6vw,72px); padding-bottom: clamp(40px,6vw,72px); }
   .facts .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: clamp(28px,4vw,56px); }
   .facts .n { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: clamp(36px,4vw,52px); line-height: 1; }
   .facts .l { margin: 10px 0 0; font-size: 14px; letter-spacing: .04em; color: #6E6A64; }
 
   /* Sections */
-  section.block { padding: clamp(64px,9vw,120px) 0; }
+  section.block { padding-top: clamp(56px,9vw,120px); padding-bottom: clamp(56px,9vw,120px); }
   section.block h2 { margin: 0; font-size: clamp(30px,4.2vw,52px); line-height: 1.15; }
 
   /* Projects */
   .projects h2 { margin-bottom: clamp(40px,6vw,72px); max-width: 24ch; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: clamp(28px,3.5vw,44px); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: clamp(28px,3.5vw,44px); }
   .card .shot {
     overflow: hidden; background: #F1EFEA; aspect-ratio: 4/3;
     display: flex; align-items: center; justify-content: center;
@@ -164,20 +229,48 @@
   .details a:hover, .details a:focus-visible { border-bottom-color: #FAFAF8; }
 
   /* Footer */
-  footer { background: #0B0B0B; border-top: 1px solid #242320; color: #8C8880; padding: 34px 0; }
+  footer { background: #0B0B0B; border-top: 1px solid #242320; color: #8C8880; padding-top: 30px; padding-bottom: 30px; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
   footer img { height: 18px; width: auto; opacity: .75; }
   footer p { margin: 0; font-size: 13px; letter-spacing: .04em; }
 
   :focus-visible { outline: 2px solid #D6D2CA; outline-offset: 3px; }
+
+  /* Anchors clear the sticky header */
+  main section[id], #top { scroll-margin-top: 76px; }
+
+  /* Small screens */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: clamp(30px, 8.4vw, 44px); max-width: 100%; }
+    .hero p { font-size: 16px; }
+    .btns { gap: 12px; }
+    .btn { padding: 15px 24px; font-size: 12px; flex: 1 1 auto; text-align: center; }
+    .facts .grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 26px 20px; }
+    .facts .n { font-size: 30px; }
+    .facts .l { font-size: 13px; }
+    section.block h2 { font-size: clamp(26px, 7.4vw, 36px); }
+    .cards { grid-template-columns: 1fr; gap: 36px; }
+    .card h3 { font-size: 21px; }
+    .card dl { grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 13px; }
+    .rows > div { padding: 22px 0; }
+    .enq button { width: 100%; text-align: center; }
+    footer .wrap { justify-content: flex-start; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .facts .grid { grid-template-columns: 1fr; }
+    .btn { width: 100%; }
+  }
 </style>
 </head>
 <body>
 
-<header class="pad">
+<header class="pad" id="siteheader">
   <div class="wrap bar">
-    <a href="#top" aria-label="Robusq home"><img src="logo.png" alt="Robusq"></a>
-    <nav>
+    <a class="brand" href="#top" aria-label="Robusq home"><img src="logo.png" alt="Robusq"></a>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span>
+    </button>
+    <nav id="nav">
       <a href="#projects">Projects</a>
       <a href="#approach">Approach</a>
       <a href="#about">About</a>
@@ -365,6 +458,51 @@
     <p>Brisbane, Queensland &middot; &copy; 2026 Robusq</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var burger = document.getElementById('burger');
+  var nav    = document.getElementById('nav');
+  var header = document.getElementById('siteheader');
+
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+  }
+
+  burger.addEventListener('click', function () {
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setMenu(false);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  // close the menu if the viewport grows past the mobile breakpoint
+  var mq = window.matchMedia('(min-width: 761px)');
+  (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(function () {
+    if (mq.matches) setMenu(false);
+  });
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
