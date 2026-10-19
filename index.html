@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robusq | Residential Property Development, Brisbane</title>
+<meta name="description" content="Robusq acquires and develops family homes across Brisbane. Small, deliberate, considered - homes we would want our own family to live in.">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:title" content="Robusq | Residential Property Development, Brisbane">
+<meta property="og:description" content="Homes we would want our own family to live in.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://robusq.com/">
+<link rel="canonical" href="https://robusq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #FAFAF8;
+    color: #1A1917;
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .pad { padding-left: clamp(20px, 5vw, 72px); padding-right: clamp(20px, 5vw, 72px); }
+  .eyebrow {
+    margin: 0 0 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #6E6A64;
+  }
+  h1, h2, h3 { font-family: 'Jost', sans-serif; font-weight: 200; letter-spacing: -0.01em; }
+
+  /* Header */
+  header { background: #0B0B0B; }
+  .bar {
+    display: flex; flex-wrap: wrap; gap: 20px;
+    align-items: center; justify-content: space-between;
+    padding-top: 26px; padding-bottom: 26px;
+  }
+  .bar img { height: 26px; width: auto; }
+  nav { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 38px); align-items: center; }
+  nav a {
+    font-family: 'Jost', sans-serif; font-size: 13px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #BFBBB4; transition: color .2s;
+  }
+  nav a:hover, nav a:focus-visible { color: #FFF; }
+  nav a.boxed { color: #FFF; border: 1px solid #4A4844; padding: 9px 20px; }
+  nav a.boxed:hover { background: #FFF; color: #0B0B0B; }
+
+  /* Hero */
+  .hero { background: #0B0B0B; color: #FAFAF8; padding: clamp(64px,11vw,150px) 0 clamp(72px,12vw,170px); }
+  .hero .eyebrow { color: #8C8880; margin-bottom: clamp(28px,5vw,54px); }
+  .hero h1 { margin: 0; max-width: 20ch; font-size: clamp(38px,6.6vw,82px); line-height: 1.08; }
+  .hero p { margin: clamp(28px,4vw,44px) 0 0; max-width: 56ch; font-size: clamp(16px,1.6vw,19px); line-height: 1.75; color: #C6C2BB; }
+  .btns { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(36px,5vw,56px); }
+  .btn {
+    display: inline-block;
+    font-family: 'Jost', sans-serif; font-size: 13px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 16px 32px; border: 1px solid #FAFAF8; color: #FAFAF8;
+    transition: background .2s, color .2s;
+  }
+  .btn:hover, .btn:focus-visible { background: #FAFAF8; color: #0B0B0B; }
+  .btn.ghost { border-color: #4A4844; color: #BFBBB4; }
+  .btn.ghost:hover { background: #FAFAF8; color: #0B0B0B; border-color: #FAFAF8; }
+
+  /* Facts */
+  .facts { border-bottom: 1px solid #E5E2DB; padding: clamp(44px,6vw,72px) 0; }
+  .facts .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: clamp(28px,4vw,56px); }
+  .facts .n { margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: clamp(36px,4vw,52px); line-height: 1; }
+  .facts .l { margin: 10px 0 0; font-size: 14px; letter-spacing: .04em; color: #6E6A64; }
+
+  /* Sections */
+  section.block { padding: clamp(64px,9vw,120px) 0; }
+  section.block h2 { margin: 0; font-size: clamp(30px,4.2vw,52px); line-height: 1.15; }
+
+  /* Projects */
+  .projects h2 { margin-bottom: clamp(40px,6vw,72px); max-width: 24ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: clamp(28px,3.5vw,44px); }
+  .card .shot {
+    overflow: hidden; background: #E8E5DE; aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .card:hover .shot img { transform: scale(1.04); }
+  .card .shot span { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #8C8880; }
+  .card .status { margin: 22px 0 0; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6E6A64; }
+  .card h3 { margin: 10px 0 0; font-weight: 300; font-size: 25px; line-height: 1.25; letter-spacing: 0; }
+  .card p { margin: 12px 0 0; font-size: 15px; line-height: 1.75; color: #45423E; }
+  .card dl { margin: 20px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: 14px; }
+  .card dt { color: #6E6A64; }
+  .card dd { margin: 0; }
+
+  /* Approach */
+  .approach { background: #F1EFEA; }
+  .split { display: flex; flex-wrap: wrap; gap: clamp(36px,5vw,80px); }
+  .split .lede { flex: 1 1 320px; min-width: 0; }
+  .split .body { flex: 999 1 420px; min-width: 0; }
+  .approach .lede p { margin: 24px 0 0; max-width: 42ch; font-size: 16px; line-height: 1.8; color: #45423E; }
+  .rows { display: grid; border-top: 1px solid #DCD8D0; }
+  .rows > div { padding: 26px 0; border-bottom: 1px solid #DCD8D0; }
+  .rows h3 { margin: 0; font-weight: 400; font-size: 18px; letter-spacing: .02em; }
+  .rows p { margin: 10px 0 0; font-size: 15px; line-height: 1.75; color: #45423E; }
+
+  /* About */
+  .about .portrait { flex: 1 1 280px; min-width: 0; }
+  .about .portrait div {
+    background: #E8E5DE; aspect-ratio: 3/4;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #8C8880;
+  }
+  .about h2 { max-width: 22ch; font-size: clamp(30px,4.2vw,48px); }
+  .about .body p { margin: 24px 0 0; max-width: 60ch; font-size: 16px; line-height: 1.8; color: #45423E; }
+
+  /* Contact */
+  .contact { background: #0B0B0B; color: #FAFAF8; }
+  .contact .eyebrow { color: #8C8880; }
+  .contact h2 { max-width: 18ch; font-size: clamp(30px,4.2vw,50px); }
+  .contact .intro { margin: 24px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.8; color: #C6C2BB; }
+  .details { margin-top: 36px; display: grid; gap: 18px; }
+  .details a {
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    font-size: clamp(20px,2.4vw,28px); letter-spacing: .01em;
+    border-bottom: 1px solid #3A3835; padding-bottom: 10px; display: inline-block;
+    transition: border-color .2s;
+  }
+  .details a:hover, .details a:focus-visible { border-bottom-color: #FAFAF8; }
+
+  /* Footer */
+  footer { background: #0B0B0B; border-top: 1px solid #242320; color: #8C8880; padding: 34px 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  footer img { height: 18px; width: auto; opacity: .75; }
+  footer p { margin: 0; font-size: 13px; letter-spacing: .04em; }
+
+  :focus-visible { outline: 2px solid #D6D2CA; outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="pad">
+  <div class="wrap bar">
+    <a href="#top" aria-label="Robusq home"><img src="logo.png" alt="Robusq"></a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a class="boxed" href="#contact">Enquire</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero pad">
+    <div class="wrap">
+      <p class="eyebrow">Residential development &middot; Brisbane</p>
+      <h1>Homes we would want our own family to live in.</h1>
+      <p>Robusq acquires and develops family homes across Brisbane's inner north. Small, deliberate, considered. We build a handful of houses at a time, and we give every one of them the care we would give our own.</p>
+      <div class="btns">
+        <a class="btn" href="#projects">View projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts pad">
+    <div class="wrap grid">
+      <div><p class="n">2014</p><p class="l">First project delivered</p></div>
+      <div><p class="n">3</p><p class="l">Sites currently in delivery</p></div>
+      <div><p class="n">Brisbane</p><p class="l">Inner north and bayside</p></div>
+      <div><p class="n">[XX]</p><p class="l">Homes delivered to date</p></div>
+    </div>
+  </section>
+
+  <section class="block projects pad" id="projects">
+    <div class="wrap">
+      <p class="eyebrow">Projects</p>
+      <h2>Three sites in delivery across Brisbane.</h2>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="shot"><span>[Render &mdash; Aspley]</span></div>
+          <p class="status">Under construction</p>
+          <h3>49 Navua Street, Aspley</h3>
+          <p>A double storey family home of 357 sqm, with a 5.4 metre void over the living room and a pool. Five bedrooms, three bathrooms, double garage.</p>
+          <dl>
+            <dt>Living</dt><dd>281 sqm</dd>
+            <dt>Total</dt><dd>357 sqm</dd>
+            <dt>Completion</dt><dd>[2027]</dd>
+          </dl>
+        </article>
+
+        <article class="card">
+          <div class="shot"><span>[Render &mdash; Kedron]</span></div>
+          <p class="status">In planning</p>
+          <h3>17 Oliver Street, Kedron</h3>
+          <p>A character overlay site being taken through development approval. Five bedrooms, butler's pantry, a large alfresco and a pool.</p>
+          <dl>
+            <dt>Size</dt><dd>approx. 350 sqm</dd>
+            <dt>Status</dt><dd>DA in progress</dd>
+            <dt>Completion</dt><dd>Q3 2027</dd>
+          </dl>
+        </article>
+
+        <article class="card">
+          <div class="shot"><span>[Render &mdash; Wynnum]</span></div>
+          <p class="status">Acquired 2026</p>
+          <h3>256 Wynnum North Road, Wynnum</h3>
+          <p>Our most recent acquisition, on Brisbane's bayside. Design and planning now underway.</p>
+          <dl>
+            <dt>Land</dt><dd>[XXX sqm]</dd>
+            <dt>Status</dt><dd>Design stage</dd>
+            <dt>Completion</dt><dd>[2028]</dd>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block approach pad" id="approach">
+    <div class="wrap split">
+      <div class="lede">
+        <p class="eyebrow">Approach</p>
+        <h2>Quality is the whole business.</h2>
+        <p>We are not a volume builder. We take on a small number of sites, hold them to a standard we would accept in our own home, and finish them properly.</p>
+      </div>
+      <div class="body rows">
+        <div>
+          <h3>Site selection first</h3>
+          <p>Every site is run through a full feasibility before we offer. If the numbers do not work, we walk.</p>
+        </div>
+        <div>
+          <h3>Design for the street</h3>
+          <p>Homes that sit properly in the suburb they are built in, not a floor plan dropped on a block.</p>
+        </div>
+        <div>
+          <h3>Finishes that last</h3>
+          <p>Stone, timber, real materials. We spend where the owner will feel it every day.</p>
+        </div>
+        <div>
+          <h3>Straight dealing</h3>
+          <p>Clean terms, fast decisions and clear answers, with agents, trades and partners alike.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block about pad" id="about">
+    <div class="wrap split">
+      <div class="portrait"><div>[Portrait]</div></div>
+      <div class="body">
+        <p class="eyebrow">About</p>
+        <h2>Chaz Arachchi</h2>
+        <p>Chaz has been developing property in Brisbane since 2014, from knockdown rebuilds through to a five storey residential project. Robusq is the result of that decade: a small development business built around sites that stack up and homes that are finished properly.</p>
+        <p>[One or two lines in your own words here &mdash; why you develop, and what you want people to know.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact pad" id="contact">
+    <div class="wrap split">
+      <div class="lede">
+        <p class="eyebrow">Contact</p>
+        <h2>Have a site, or want to talk?</h2>
+        <p class="intro">We look at knockdown rebuild and subdivision sites across Brisbane, Moreton Bay and Logan. Off market is welcome.</p>
+      </div>
+      <div class="body">
+        <div class="details">
+          <a href="mailto:chaz@robusq.com">chaz@robusq.com</a>
+          <a href="tel:+61422308311">0422 308 311</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pad">
+  <div class="wrap">
+    <img src="logo.png" alt="Robusq">
+    <p>Brisbane, Queensland &middot; &copy; 2026 Robusq</p>
+  </div>
+</footer>
+
+</body>
+</html>
