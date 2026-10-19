@@ -97,6 +97,9 @@
   .card .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
   .card:hover .shot img { transform: scale(1.04); }
   .card .shot span { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #8C8880; }
+  .card .shot.plate { background: #0B0B0B; flex-direction: column; gap: 14px; padding: 32px; text-align: center; }
+  .card .shot.plate .pnum { font-family: 'Jost', sans-serif; font-weight: 200; font-size: clamp(34px, 5vw, 48px); line-height: 1; color: #FAFAF8; letter-spacing: -0.01em; }
+  .card .shot.plate .pst { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #8C8880; }
   .card .status { margin: 22px 0 0; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6E6A64; }
   .card h3 { margin: 10px 0 0; font-weight: 300; font-size: 25px; line-height: 1.25; letter-spacing: 0; }
   .card p { margin: 12px 0 0; font-size: 15px; line-height: 1.75; color: #45423E; }
@@ -188,7 +191,7 @@
   <section class="block projects pad" id="projects">
     <div class="wrap">
       <p class="eyebrow">Projects</p>
-      <h2>Four projects, delivered and in delivery.</h2>
+      <h2>Five projects, delivered and in delivery.</h2>
 
       <div class="cards">
 
@@ -237,6 +240,21 @@
             <dt>Type</dt><dd>Five storey residential</dd>
             <dt>Status</dt><dd>Delivered</dd>
             <dt>Completed</dt><dd>[20XX]</dd>
+          </dl>
+        </article>
+
+        <article class="card">
+          <div class="shot plate">
+            <span class="pnum">34 Andrews St</span>
+            <span class="pst">Cannon Hill</span>
+          </div>
+          <p class="status">[Status]</p>
+          <h3>34 Andrews Street, Cannon Hill</h3>
+          <p>A five storey residential development on a medium density site, taken through development approval with Scott Connell Architects.</p>
+          <dl>
+            <dt>Type</dt><dd>Five storey residential</dd>
+            <dt>Status</dt><dd>[Status]</dd>
+            <dt>Completion</dt><dd>[20XX]</dd>
           </dl>
         </article>
 
