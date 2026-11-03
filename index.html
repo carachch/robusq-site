@@ -226,6 +226,12 @@
   .rows > div { padding: 26px 0; border-bottom: 1px solid #DCD8D0; }
   .rows h3 { margin: 0; font-weight: 400; font-size: 18px; letter-spacing: .02em; }
   .rows p { margin: 10px 0 0; font-size: 15px; line-height: 1.75; color: #45423E; }
+  /* Approach runs as one centred column */
+  .approach .split { flex-direction: column; align-items: center; text-align: center; gap: clamp(32px,4.5vw,56px); }
+  .approach .split .lede,
+  .approach .split .body { flex: 0 1 auto; width: 100%; max-width: 720px; }
+  .approach .lede p { max-width: 52ch; margin-left: auto; margin-right: auto; }
+  .approach .rows p { max-width: 60ch; margin-left: auto; margin-right: auto; }
 
   /* About */
   .about .portrait { flex: 1 1 280px; min-width: 0; }
